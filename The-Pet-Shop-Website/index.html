@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Pet Shop | Find Your Best Friend</title>
+    <style>
+        /* Unique but Simple Styling */
+        :root {
+            --primary: #6c5ce7;
+            --secondary: #fab1a0;
+            --bg: #f9f9fb;
+            --text: #2d3436;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        h1 { margin: 0; font-size: 2.5rem; }
+        
+        /* The Grid System */
+        .pet-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .pet-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .pet-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary);
+        }
+
+        .pet-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .pet-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .pet-info h3 { margin: 10px 0; color: var(--primary); }
+
+        .video-section {
+            margin-top: 50px;
+            text-align: center;
+            background: var(--secondary);
+            padding: 40px;
+            border-radius: 30px;
+            color: white;
+        }
+
+        video {
+            max-width: 100%;
+            border-radius: 15px;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🐾 The Pet Shop</h1>
+        <p>Where happy tails begin</p>
+    </header>
+
+    <div class="container">
+        
+        <section>
+            <h2 style="text-align: center;">Meet Our Friends</h2>
+            <div class="pet-grid">
+                
+                <!-- Pet Card 1 -->
+                <div class="pet-card">
+                    <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=500&q=80" alt="Happy Golden Retriever">
+                    <div class="pet-info">
+                        <h3>Buddy</h3>
+                        <p>A energetic Golden Retriever who loves belly rubs and long walks in the park.</p>
+                    </div>
+                </div>
+
+                <!-- Pet Card 2 -->
+                <div class="pet-card">
+                    <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=500&q=80" alt="Cute Ginger Cat">
+                    <div class="pet-info">
+                        <h3>Luna</h3>
+                        <p>A calm, sophisticated ginger cat who enjoys sunny spots and afternoon naps.</p>
+                    </div>
+                </div>
+
+                <!-- Pet Card 3 -->
+                <div class="pet-card">
+                    <img src="https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?auto=format&fit=crop&w=500&q=80" alt="White Bunny">
+                    <div class="pet-info">
+                        <h3>Snowball</h3>
+                        <p>The fluffiest bunny you'll ever meet. Expert in nibbling carrots and looking cute.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Video Feature Section -->
+        <section class="video-section">
+            <h2>See Them In Action!</h2>
+            <p>Watch how our pets play together in the daycare center.</p>
+            <!-- Using a sample video from Pexels -->
+            <video controls poster="https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&w=500">
+                <source src="https://videos.pexels.com/video-files/4451998/4451998-sd_640_360_25fps.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 The Pet Shop Co. | Created with ❤️ for animals.</p>
+    </footer>
+
+</body>
+</html>
