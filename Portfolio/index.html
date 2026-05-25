@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farah Hussein | Creative Portfolio</title>
+    <style>
+        /* ==========================================================================
+           1. CORE VARIABLES & GLOBAL STYLES
+           ========================================================================== */
+        :root {
+            --bg-dark: #0f0c1b;
+            --panel-bg: #1a162e;
+            --neon-pink: #ff2a74;
+            --neon-amber: #ff9f1c;
+            --electric-blue: #00f0ff;
+            --text-light: #f4f4f9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ==========================================================================
+           2. FIXED NAVBAR
+           ========================================================================== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--panel-bg); /* Background color */
+            border-bottom: 2px solid var(--neon-pink);
+            z-index: 9999;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav a {
+            color: var(--electric-blue); /* Font color */
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        /* Hover effect */
+        nav a:hover {
+            background-color: var(--neon-pink);
+            color: var(--text-light);
+            box-shadow: 0 0 10px var(--neon-pink);
+        }
+
+        /* ==========================================================================
+           3. HERO HERO OVERLAY VIDEO SECTION
+           ========================================================================== */
+        .hero-video-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 50px; /* Space for fixed nav */
+        }
+
+        /* Autoplay, muted, loop video background */
+        .hero-video-container video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        /* Darkening color overlay to make text pop */
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(15, 12, 27, 0.8), rgba(26, 22, 46, 0.6));
+            z-index: 2;
+        }
+
+        /* Text overlay over video */
+        .hero-text-overlay {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero-text-overlay h1 {
+            font-size: 4rem;
+            color: var(--text-light);
+            text-shadow: 0 0 20px var(--neon-pink);
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .hero-text-overlay p {
+            font-size: 1.5rem;
+            color: var(--electric-blue);
+            text-shadow: 0 0 10px var(--electric-blue);
+        }
+
+        /* ==========================================================================
+           4. MAIN CONTENT LAYOUT
+           ========================================================================== */
+        main {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            margin-bottom: 100px;
+            padding-top: 40px;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: var(--neon-amber);
+            margin-bottom: 30px;
+            border-left: 5px solid var(--neon-pink);
+            padding-left: 15px;
+        }
+
+        /* ==========================================================================
+           5. TWO-COLUMN LAYOUT
+           ========================================================================== */
+        .two-column-grid {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .column {
+            flex: 1;
+            min-width: 300px;
+            height: 350px; /* Specified height */
+            background-color: var(--panel-bg);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 42, 116, 0.2);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+        }
+
+        /* Specified font colors for text inside columns */
+        .column h3 {
+            color: var(--neon-pink);
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+
+        .column p {
+            color: #b0aec2; 
+        }
+
+        /* Paragraph Hover effect requirement */
+        .hover-p {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .hover-p:hover {
+            color: var(--electric-blue) !important;
+            background: rgba(0, 240, 255, 0.1);
+            transform: translateX(5px);
+        }
+
+        /* ==========================================================================
+           6. CENTERED, FILTERED, ROUNDED IMAGE
+           ========================================================================== */
+        .image-center-wrapper {
+            display: flex;
+            justify-content: center; /* Centers the image horizontally */
+            align-items: center;
+            margin: 40px 0;
+        }
+
+        .showcase-img {
+            max-width: 100%;
+            width: 500px;
+            border-radius: 25px; /* Rounded Edges */
+            filter: hue-rotate(45deg) saturate(140%) contrast(110%); /* CSS Filter */
+            box-shadow: 0 0 25px var(--neon-amber);
+        }
+
+        /* ==========================================================================
+           7. IMAGE OVERLAY FADE
+           ========================================================================== */
+        .overlay-card {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+
+        .overlay-card img {
+            width: 100%;
+            display: block;
+            height: 350px;
+            object-fit: cover;
+        }
+
+        .image-fade-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 42, 116, 0.9);
+            opacity: 0; /* Default hidden for fade dynamic */
+            transition: opacity 0.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Hover interaction to reveal the overlay */
+        .overlay-card:hover .image-fade-overlay {
+            opacity: 1;
+        }
+
+        .image-fade-overlay h3 {
+            color: var(--text-light);
+            font-size: 2rem;
+            text-transform: uppercase;
+        }
+
+        /* ==========================================================================
+           8. STYLED DATA TABLE
+           ========================================================================== */
+        .table-container {
+            overflow-x: auto;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: var(--panel-bg);
+            border: 3px solid var(--electric-blue); /* Table Border */
+            border-radius: 8px;
+        }
+
+        th, td {
+            border: 1px solid rgba(0, 240, 255, 0.2); /* Cell Borders */
+            padding: 15px; /* Padding inside cells */
+            text-align: left;
+        }
+
+        tr:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+
+        thead tr {
+            background-color: var(--neon-pink) !important; /* Top Row Background Color */
+        }
+
+        thead th {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* ==========================================================================
+           9. STRIPED STRUCTURAL FOOTER
+           ========================================================================== */
+        footer {
+            background-color: var(--panel-bg);
+            border-top: 2px solid var(--neon-amber);
+            padding: 30px;
+            margin-top: 80px;
+        }
+
+        footer p {
+            text-align: center; /* Centered text */
+            font-weight: bold; /* Bold text */
+            color: var(--neon-amber);
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#showcase">Showcase</a>
+        <a href="#skills">Skills Data</a>
+    </nav>
+
+    <div class="hero-video-container" id="home">
+        <video autoplay muted loop playsinline>
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-laser-lights-background-32124-large.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
+        <div class="video-overlay"></div>
+        <div class="hero-text-overlay">
+            <h1>Farah Hussein</h1>
+            <p>Innovator | Student | Tech Enthusiast</p>
+        </div>
+    </div>
+
+    <main>
+
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="two-column-grid">
+                <div class="column">
+                    <h3>My Journey</h3>
+                    <p>I am a driven student specializing in the intersection of digital creation, web workflows, and robust engineering frameworks. I love creating beautiful user interfaces that balance vibrant expressions with strict usability rules.</p>
+                    <p class="hover-p">✨ Hover over this paragraph element to test the responsive CSS animation rules built right into my structural sheet!</p>
+                </div>
+                <div class="column">
+                    <h3>My Vision</h3>
+                    <p>Through careful practice across systems logic, databases, and semantic markup structures, my work aims to simplify interfaces. I use modern CSS architectures to ensure projects look great across devices.</p>
+                    <p class="hover-p">🚀 Every module built on this layout operates inside strict height configurations to secure uniform card frameworks.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="showcase">
+            <h2>Visual Innovations</h2>
+            
+            <h3>Centered, Filtered Profile Concept</h3>
+            <div class="image-center-wrapper">
+                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Farah Abstract Concept Profile" class="showcase-img">
+            </div>
+
+            <br><br>
+
+            <h3>Interactive Image Fade Overlay</h3>
+            <div class="overlay-card">
+                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80" alt="Cyber Workspace Matrix">
+                <div class="image-fade-overlay">
+                    <h3>Project Terminus Alpha</h3>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Technical Framework Metrics</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Environment Scope</th>
+                            <th>Core Competency</th>
+                            <th>Execution Metric</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Frontend Architecture</td>
+                            <td>Semantic Core (HTML5/CSS3 Grid Layouts)</td>
+                            <td>Expert Scale</td>
+                        </tr>
+                        <tr>
+                            <td>System Schemas</td>
+                            <td>Bootstrap Integration & Variable Control</td>
+                            <td>Advanced Scale</td>
+                        </tr>
+                        <tr>
+                            <td>Asset Pipeline</td>
+                            <td>Video Optimization & Filter Manipulations</td>
+                            <td>Intermediate Scale</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Farah Hussein Designs. Built with Pure HTML & CSS Layouts.</p>
+    </footer>
+
+</body>
+</html>
